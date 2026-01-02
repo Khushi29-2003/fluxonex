@@ -1,0 +1,34 @@
+<template>
+    <lightning-layout multiple-rows>
+
+        <!-- LEFT SIDE -->
+        <lightning-layout-item size="6" padding="around-small">
+            <lightning-card title="Speaker Explorer">
+
+                <lightning-input
+                    label="Name"
+                    onchange={handleName}>
+                </lightning-input>
+
+                <lightning-combobox
+                    label="Speciality"
+                    options={options}
+                    onchange={handleSpeciality}>
+                </lightning-combobox>
+
+                <c-speaker-list
+                    name-key={name}
+                    speciality={speciality}
+                    onselectspeaker={handleSelect}>
+                </c-speaker-list>
+
+            </lightning-card>
+        </lightning-layout-item>
+
+        <!-- RIGHT SIDE -->
+        <lightning-layout-item size="6" padding="around-small">
+            <c-book-session speaker={selectedSpeaker}></c-book-session>
+        </lightning-layout-item>
+
+    </lightning-layout>
+</template>
